@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+        <!-- watisalon.order tree view -->
+        <record id="watisalon_order_view_tree" model="ir.ui.view">
+            <field name="name">watisalon.order.view.tree</field>
+            <field name="model">watisalon.order</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="pid" />
+                    <field name="ptgl" />
+                    <field name="total_harga" />
+
+                </tree>
+            </field>
+        </record>
+
+        <!-- watisalon.order form view -->
+        <record id="watisalon_order_view_form" model="ir.ui.view">
+            <field name="name">watisalon.order.view.form</field>
+            <field name="model">watisalon.order</field>
+            <field name="arch" type="xml">
+                <form string="Daftar Order Salon">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                        </group>
+                        <group>
+                            <field name="pid" />
+                        </group>
+                        <group>
+                            <field name="ptgl" />
+                        </group>
+                        <group>
+                            <field name="total_harga" sum="Total Harga"/>
+                        </group>
+                        <notebook>
+                            <page name="detailorder" string="Detail Order">
+                                <field name="detailpesanan_id">
+                                    <tree editable="bottom">
+                                        <field name="a_id"/>
+                                        <field name="harga"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- watisalon.order action window -->
+        <record id="watisalon_order_action" model="ir.actions.act_window">
+            <field name="name">Order Salon</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">watisalon.order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Buat order baru
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="watisalon_order_menu_act" 
+            name="Data Order" 
+            parent="watisalon_dataorder_menu_categ" 
+            action="watisalon_order_action" 
+            sequence="3"/>
+</odoo>

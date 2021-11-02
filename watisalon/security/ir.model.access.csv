@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_watisalon_jenislayanan,access.watisalon.jenislayanan,model_watisalon_jenislayanan,,1,1,1,1
+access_watisalon_tipe,access.watisalon.tipe,model_watisalon_tipe,,1,1,1,1
+access_watisalon_order,access.watisalon.order,model_watisalon_order,,1,1,1,1
+access_watisalon_detailpesanan,access.watisalon.detailpesanan,model_watisalon_detailpesanan,,1,1,1,1

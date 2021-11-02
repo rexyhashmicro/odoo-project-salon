@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- res.pegawai action window -->
+        <record id="res_pegawai_action" model="ir.actions.act_window">
+            <field name="name">Data Pegawai</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">
+                {
+                    'search_default_pegawainya': 1,
+                    'default_is_pegawainya':True,
+                }
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="res_pegawai_menu_act" 
+            name="Pegawai" 
+            parent="watisalon_datacontact_menu_categ" 
+            action="res_pegawai_action" 
+            sequence="2"/>
+    
+    </data>
+    
+</odoo>

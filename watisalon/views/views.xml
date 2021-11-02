@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- watisalon.jenislayanan tree view -->
+    <record id="watisalon_jenislayanan_view_tree" model="ir.ui.view">
+      <field name="name">watisalon.jenislayanan.view.tree</field>
+      <field name="model">watisalon.jenislayanan</field>
+      <field name="arch" type="xml">
+        <tree>
+          <!-- Add your fields here -->
+          <field name="name"/>
+          <field name="jenis"/>
+          <field name="layanan"/>
+          <field name="tipe"/>
+          <field name="harga"/>
+          <field name="active"/>
+          
+        </tree>
+      </field>
+    </record>
+
+    <!-- watisalon.jenislayanan form view -->
+    <record id="watisalon_jenislayanan_view_form" model="ir.ui.view">
+      <field name="name">watisalon.jenislayanan.view.form</field>
+      <field name="model">watisalon.jenislayanan</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+            <group>
+              <!-- Add your fields here -->
+              <group colspan = '4'>
+                <group colspan = '2'>
+                  <separator string="Informasi Layanan"/>
+                  <field name="name"/>
+                  <field name="jenis"/>
+                  <field name="layanan"/>
+                  <field name="tipe"/>
+                  <field name="active"/>
+                </group>
+                <notebook>
+                  <page string="Harga">
+                    <field name="harga"/>
+                  </page>
+                </notebook>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- watisalon.jenislayanan action window -->
+    <record id="watisalon_jenislayanan_action" model="ir.actions.act_window">
+      <field name="name">watisalon.jenislayanan.action</field>
+      <field name="res_model">watisalon.jenislayanan</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="view_mode">tree,form,kanban</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_smiling_face">
+          Diisi dengan daftar jenis treatment dan harga
+        </p><p>
+          <!-- More details about what a user can do with this object will be OK --> 
+        </p>
+      </field>
+    </record>
+
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="watisalon_treatment_menu_act" 
+      name="Treatment" 
+      parent="watisalon_datamaster_menu_categ" 
+      action="watisalon_jenislayanan_action" 
+      sequence="1"/>
+  </data>
+</odoo>
+
+<!-- urutan: menu root -> menu action -> tree -->

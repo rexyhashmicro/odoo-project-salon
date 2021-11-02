@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+    
+        <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+        <menuitem id="watisalon_menu_root" name="Wati Salon" sequence="10"/>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="watisalon_datamaster_menu_categ" 
+        name="Informasi Salon" 
+        parent="watisalon_menu_root" 
+        sequence="10"/>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="watisalon_datacontact_menu_categ" 
+        name="Data Kontak" 
+        parent="watisalon_menu_root" 
+        sequence="11"/>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="watisalon_dataorder_menu_categ" 
+        name="Operasional" 
+        parent="watisalon_menu_root" 
+        sequence="12"/>
+    
+    </data>
+    
+</odoo>
+

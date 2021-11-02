@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+    
+    <!-- otree -->
+    <record id="res_partner_pelanggan_view" model="ir.ui.view">
+            <field name="name">res.partner.inherit.view.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type='xml'>
+                <field name="vat" position="replace"/>
+                <field name="company_id" position="replace"/>
+                <field name="country_id" position="replace"/>
+            </field>
+        </record>
+
+    <!-- model.name form view -->
+        <record id="inherit_res_partner_view_id" model="ir.ui.view">
+            <field name="name">res.partner.inherit.view.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type='xml'>
+                <field name="vat" position="after">
+                    <field name="is_pegawainya" />
+                    <field name="is_customernya" />
+                </field>
+                <field name="vat" position="replace"/>
+            </field>
+        </record>
+
+        <!-- res.partner search view -->
+        <record id="res_partner_view_search" model="ir.ui.view">
+            <field name="name">res.partner.view.search</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">       
+            <field name="parent_id" position="after">
+                <filter string="Pelanggan" name="customernya" domain="[('is_customernya', '=', True)]"/>
+                <filter string="Pegawai" name="pegawainya" domain="[('is_pegawainya', '=', True)]"/>
+            </field>
+            </field>
+        </record>
+
+    <!-- res.partner action window -->
+    <record id="res_partner_action" model="ir.actions.act_window">
+        <field name="name">Data Pelanggan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">
+                {
+                    'search_default_customernya':1,
+                    'default_is_customernya':True,
+                }
+            </field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="pelanggan_res_partner_menu_act" 
+            name="Pelanggan" 
+            parent="watisalon_datacontact_menu_categ" 
+            action="res_partner_action" 
+            sequence="1"/>
+    
+    </data>
+    
+</odoo>
